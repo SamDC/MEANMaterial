@@ -1,0 +1,80 @@
+<div data-ng-controller="HeaderController">
+    <md-content>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <md-menu ng-show="authentication.user">
+                    <md-button class="md-icon-button" aria-label="Views" ng-click="$mdOpenMenu()">
+                        <i class="material-icons md-36">menu</i>
+                    </md-button>
+                    <md-menu-content width="6">
+                        <md-menu-item data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-show="authentication.user">
+                            <md-button ng-click="go('{{item.uiRoute}}')">
+                                <md-icon>
+                                    <i class="material-icons">{{item.icon}}</i>
+                                </md-icon>
+                                {{item.title}}
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                <h2>
+                    <span>MEAN Material</span>
+                </h2>
+                <span flex></span>
+                <md-menu>
+                    <md-button class="md-icon-button" aria-label="Account" ng-click="$mdOpenMenu()">
+                        <i class="material-icons md-36">account_circle</i>
+                    </md-button>
+                    <md-menu-content width="6">
+                        <md-menu-item data-ng-hide="authentication.user">
+                            <md-button ng-click="go('/signup')">
+                                <md-icon>
+                                    <i class="material-icons">assignment_ind</i>
+                                </md-icon>
+                                Sign up
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item data-ng-show="authentication.user">
+                            <md-button ng-click="go('/settings/profile')">
+                                <md-icon>
+                                    <i class="material-icons">mode_edit</i>
+                                </md-icon>
+                                Edit profile
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item data-ng-show="authentication.user">
+                            <md-button ng-click="go('/settings/accounts')">
+                                <md-icon>
+                                    <i class="material-icons">group</i>
+                                </md-icon>
+                                Manage social accounts
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item data-ng-hide="authentication.user">
+                            <md-button ng-click="go('/signin')">
+                                <md-icon>
+                                    <i class="material-icons">lock_open</i>
+                                </md-icon>
+                                Sign in
+                            </md-button>
+                        </md-menu-item>
+                        <a href="/auth/signout">
+                            <md-menu-item data-ng-show="authentication.user">
+                                <md-button>
+                                    <md-icon>
+                                        <i class="material-icons">cancel</i>
+                                    </md-icon>
+                                    Sign out
+                                </md-button>
+                            </md-menu-item>
+                        </a>
+                    </md-menu-content>
+                </md-menu>
+                <h4 data-ng-show="authentication.user">
+                    <span>{{authentication.user.displayName}}</span>
+                </h4>
+	       </div>
+        </md-toolbar>
+    </md-content>
+</div>
