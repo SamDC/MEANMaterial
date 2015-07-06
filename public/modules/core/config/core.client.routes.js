@@ -8,9 +8,9 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
 		// Home state routing
 		$stateProvider.
-		state('page1clientview', {
+		state('page1', {
 			url: '/page1',
-			templateUrl: 'modules/core/views/page1clientview.client.view.html'
+			templateUrl: 'modules/core/views/page1.client.view.html'
 		}).
 		state('home', {
 			url: '/',
