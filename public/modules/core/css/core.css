@@ -16,3 +16,31 @@
 
 
 
+
+.core-main-image-container {
+    height: 360px;
+}
+
+.core-main-image {
+    width: 360px
+}
+
+.h2-core-title {
+    text-align: center;
+}
+
+.kermit-green {
+    color: #8CD049;
+}
+
+.deeper-red {
+    color: #E13138;
+}
+
+.lightning-yellow {
+    color: #FFEA1D;
+}
+
+.blue-sky-blue {
+    color: #35C6EA;
+}
