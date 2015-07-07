@@ -56,3 +56,4 @@ form > fieldset > div > a {
     color:#8bc34a;
 }
 
+fieldset { border: 0; }
