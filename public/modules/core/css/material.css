@@ -62,3 +62,17 @@ fieldset { border: 0; }
     margin-right: 8px;
     margin-bottom: 10px;
 }
+
+.md-list-item-custom {
+    border-bottom: 1px solid #EEE;
+}
+
+
+
+.md-custom-menu {
+    margin-top: 20px;
+}
+
+.md-icon-padding-left {
+    margin-left: 5px;
+}
