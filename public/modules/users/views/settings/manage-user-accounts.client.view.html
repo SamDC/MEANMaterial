@@ -23,7 +23,12 @@
             <div flex>
                 <md-whiteframe class="md-whiteframe-z2" layout>
                     <md-list class="user-list">
-                        <md-subheader class="md-no-sticky">Users</md-subheader>
+                        <div layout="row">
+                            <md-subheader>Users</md-subheader>
+                            <md-icon class="user-card-menu-item">
+                                    <i class="material-icons md-24">add</i>
+                            </md-icon>
+                        </div>
                         <md-list-item class="md-3-line" ng-repeat="user in users">
                             <md-icon>
                                 <i class="material-icons md-48">account_circle</i>
