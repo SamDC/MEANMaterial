@@ -1,8 +1,12 @@
 'use strict';
 
-angular.module('users').controller('SettingsController', ['$scope', '$window', '$stateParams', '$http', '$location', 'Users', 'Authentication',
-	function($scope, $window, $stateParams, $http, $location, Users, Authentication) {
+angular.module('users').controller('SettingsController', ['$scope', '$window', '$stateParams', '$http', '$location', 'Users', 'Authentication', '$mdDialog',
+	function($scope, $window, $stateParams, $http, $location, Users, Authentication, $mdDialog) {
 		$scope.user = Authentication.user;
+        
+        $scope.go = function (path) {
+            $location.path(path);
+        };
 
 		// If user is not signed in then redirect back home.
 		if (!$scope.user) $location.path('/signin');
@@ -81,23 +85,29 @@ angular.module('users').controller('SettingsController', ['$scope', '$window', '
 		};
         
         //delete a user account.
-        $scope.remove = function() {
-            var removeUserAccount = $scope.selectedRow;
-            //console.log(user.username);
+        $scope.remove = function(user) {
+            var removeUserAccount = user;
+            //console.log(username);
             
-            var removeUser = $window.confirm('Are you sure you want to delete '+removeUserAccount.username+'?'); //confirmation of intent to delete.
-            if (removeUser) {
+            var confirm = $mdDialog.confirm()
+              .parent(angular.element(document.body))
+              .title('Would you like to delete ' + user.username + '?')
+              .content('Confirm you wish to carry out this operation')
+              .ariaLabel('Delete')
+              .ok('Please do it!')
+              .cancel('No my mistake');
+            $mdDialog.show(confirm).then(function() {
                 removeUserAccount.$remove(function() {
-				$location.path('/settings/accounts');
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});   
-				for (var i in $scope.users) {
-					if ($scope.users[i] === removeUserAccount) {
-						$scope.users.splice(i, 1);
-					}
-				}
-            }
+                    $location.path('/settings/accounts');
+                    for (var i in $scope.users) {
+                       if ($scope.users[i] === removeUserAccount) {
+                          $scope.users.splice(i, 1);
+                       }
+                    }
+                });
+            }, function() {
+                $scope.alert = 'You decided to keep ' + user.username;
+            });
         };
         
         

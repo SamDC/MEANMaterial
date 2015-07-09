@@ -64,7 +64,7 @@ fieldset { border: 0; }
 }
 
 .md-list-item-custom {
-    border-bottom: 1px solid #EEE;
+    border-top: 1px solid #EEE;
 }
 
 
