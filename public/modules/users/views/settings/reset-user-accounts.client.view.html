@@ -1,0 +1,43 @@
+<section class="row user-background" data-ng-controller="SettingsController" data-ng-show="user.role==='admin'">
+	<h3 class="col-md-12 text-center white-text">Reset user password</h3>
+	<div class="col-xs-offset-2 col-xs-12 col-md-offset-4 col-md-5">
+		<form name="userForm" data-ng-submit="resetUserPassword()" class="signin form-horizontal white-text" autocomplete="off" novalidate>
+			<fieldset>
+				<div class="form-group" ng-class="{ 'has-error' : userForm.newPassword.$invalid && !userForm.newPassword.$pristine }">
+					<label for="newPassword" class="col-sm-3">New Password</label>
+					<div class="col-sm-5">
+						<input type="password" required id="newPassword" name="newPassword" class="form-control" data-ng-model="passwordDetails.newPassword" data-ng-pattern="/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/" data-ng-change="verifyPassword.pattern=this.value" ng-minlength="8" placeholder="New Password">
+					</div>
+					<div class="col-sm-4">
+						<p ng-show="userForm.newPassword.$error.minlength" class="help-block" >Password must be at least 8 characters.</p>
+                        <p ng-show="userForm.newPassword.$error.pattern" class="help-block" >Password must contain at least 1 letter and 1 number.</p>
+						<span ng-show="userForm.newPassword.$valid && !userForm.newPassword.$pristine" class="glyphicon glyphicon-ok" style="color: green;"></span>
+					</div>
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : userForm.verifyPassword.$invalid && !userForm.verifyPassword.$pristine }">
+					<label for="verifyPassword" class="col-sm-3">Verify Password</label>
+					<div class="col-sm-5">
+						<input type="password" required id="verifyPassword" name="verifyPassword" class="form-control" data-ng-model="passwordDetails.verifyPassword" data-ng-pattern="/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/" ng-minlength="8" placeholder="Verify Password">
+					</div>
+					<div class="col-sm-4">
+						<p ng-show="userForm.verifyPassword.$error.minlength" class="help-block" >Password must be at least 8 characters.</p>
+                        <p ng-show="userForm.verifyPassword.$error.pattern" class="help-block" >Password must contain at least 1 letter and 1 number.</p>
+						<p ng-show="userForm.verifyPassword.$valid && !userForm.verifyPassword.$pristine && passwordDetails.newPassword!=passwordDetails.verifyPassword" class="help-block" style="color: red;">Passwords don't match.</p>
+                        <span ng-show="userForm.verifyPassword.$valid && !userForm.verifyPassword.$pristine && passwordDetails.newPassword===passwordDetails.verifyPassword" class="glyphicon glyphicon-ok" style="color: green;"></span>
+					</div>
+				</div>
+
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-large btn-primary">Reset Password</button>&nbsp;Or&nbsp;
+                    <a class="white-text" href="/#!/settings/accounts">Cancel</a>
+				</div>
+				<div data-ng-show="error" class="text-center text-danger">
+					<strong>{{error}}</strong>
+				</div>
+				<div data-ng-show="success" class="text-center text-success">
+					<strong>{{success}}</strong>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</section>

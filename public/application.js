@@ -14,6 +14,10 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 angular.module(ApplicationConfiguration.applicationModuleName)
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
+  //Custom background palette
+//    .backgroundPalette('light-green', {
+//        'default':'50'
+//  })
     .primaryPalette('green')
     .accentPalette('light-green');
 });

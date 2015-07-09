@@ -54,4 +54,29 @@ module.exports = function(app) {
 
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);
+    
+    //Setting manage user accounts routes
+    app.route('/settings/accounts')
+        .get(users.list);
+    
+    //manage users -> new account
+    app.route('/auth/create').post(users.create);
+    
+    //manage users -> unlock/delete account
+    app.route('/settings/accounts/:userId')
+            .put(users.unlock)
+            .delete(users.delete);
+    
+    //manage users -> edit account
+    app.route('/settings/accounts/:profileId')
+            .get(users.read);
+    app.route('/settings/accounts/edit/:profileId')
+            .post(users.update);
+    
+    //manage users -> reset password
+    app.route('/settings/accounts/reset/:profileId')
+            .post(users.reset);
+    
+    // Finish by binding the user middleware
+	app.param('profileId', users.profileByID);
 };

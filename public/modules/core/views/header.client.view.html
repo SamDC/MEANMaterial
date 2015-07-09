@@ -41,9 +41,17 @@
                                 </md-icon>
                                 Edit profile
                             </md-button>
-                        </md-menu-item>
+                        </md-menu-item>                        
                         <md-menu-item data-ng-show="authentication.user">
                             <md-button ng-click="go('/settings/accounts')">
+                                <md-icon>
+                                    <i class="material-icons">settings</i>
+                                </md-icon>
+                                Manage user accounts
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item data-ng-show="authentication.user">
+                            <md-button ng-click="go('/settings/accounts/social')">
                                 <md-icon>
                                     <i class="material-icons">group</i>
                                 </md-icon>
