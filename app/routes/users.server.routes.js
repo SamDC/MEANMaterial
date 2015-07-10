@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 	// Setting up the users profile api
 	app.route('/users/me').get(users.me);
-	app.route('/users').put(users.update);
+	app.route('/users').put(users.updateProfile);
 	app.route('/users/accounts').delete(users.removeOAuthProvider);
 
 	// Setting up the users password api
@@ -73,7 +73,7 @@ module.exports = function(app) {
     app.route('/settings/accounts/edit/:profileId')
             .post(users.update);
     app.route('/settings/accounts/edit/admin/:profileId')
-            .post(users.update);
+            .post(users.updateAdmin);
     
     //manage users -> reset password
     app.route('/settings/accounts/reset/:profileId')

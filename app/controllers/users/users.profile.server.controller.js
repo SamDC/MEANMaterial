@@ -12,11 +12,10 @@ var _ = require('lodash'),
 /**
  * Update user details
  */
-exports.update = function(req, res) {
+exports.updateProfile = function(req, res) {
 	// Init Variables
 	var user = req.user;
 	var message = null;
-
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
 

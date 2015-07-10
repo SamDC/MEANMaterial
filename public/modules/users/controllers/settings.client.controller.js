@@ -29,7 +29,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$window', '
         
         //get list of users.
         $scope.find = function() {
-			$scope.users = Users.query();
+			$scope.users = Users.user.query();
             //console.log($scope.users);
 		};
         
@@ -37,13 +37,13 @@ angular.module('users').controller('SettingsController', ['$scope', '$window', '
         $scope.$watchCollection('updateUser', function(newValue) {
             if (newValue!==undefined) {
                 $scope.selectedRow = newValue[0];
-                //console.log($scope.selectedRow);
+                console.log($scope.selectedRow);
             }
         });
         
         //get single user for editing.
         $scope.findOne = function() {
-			$scope.updateUser = Users.query({
+			$scope.updateUser = Users.user.query({
                 userId: $stateParams.userId
             });
 		};
@@ -110,21 +110,38 @@ angular.module('users').controller('SettingsController', ['$scope', '$window', '
             });
         };
         
-        
-		// Update a user profile
-		$scope.update = function() {
+        // Update a user profile
+		$scope.updateUserProfile = function(isValid) {
+			if (isValid) {
 				$scope.success = $scope.error = null;
-                //reset userpassword because it keeps getting overwritten.
-                $scope.selectedRow.password = $scope.passwordDetails.verifyPassword;
-				var updateUserAccount = new Users($scope.selectedRow);
-                //console.log(updateUserAccount);
-				updateUserAccount.$update(function() {
+				var user = new Users.user($scope.selectedRow);
+
+				user.$update(function(response) {
 					$scope.success = true;
-                    
-                    $location.path('/settings/accounts');
+					$location.path('/settings/accounts');
 				}, function(response) {
 					$scope.error = response.data.message;
 				});
+			} else {
+				$scope.submitted = true;
+			}
+		};
+        
+        // Update a user profile
+		$scope.update = function(isValid) {
+			if (isValid) {
+				$scope.success = $scope.error = null;
+				var user = new Users.profile($scope.user);
+
+				user.$update(function(response) {
+					$scope.success = true;
+					Authentication.user = response;
+				}, function(response) {
+					$scope.error = response.data.message;
+				});
+			} else {
+				$scope.submitted = true;
+			}
 		};
 
 		// Change user password
