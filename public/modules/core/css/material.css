@@ -76,3 +76,7 @@ fieldset { border: 0; }
 .md-icon-padding-left {
     margin-left: 5px;
 }
+
+.md-whiteframe-background {
+    background: #F6F6F6;
+}
