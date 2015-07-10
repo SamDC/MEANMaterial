@@ -45,6 +45,10 @@ angular.module('users').config(['$stateProvider',
 			url: '/settings/accounts/:userId/edit',
 			templateUrl: 'modules/users/views/settings/edit-profile.client.view.html'
 		}).
+        state('editAccountsAdmin', {
+			url: '/settings/accounts/:userId/edit/admin',
+			templateUrl: 'modules/users/views/settings/edit-profile-admin.client.view.html'
+		}).
         state('listAccounts', {
 			url: '/settings/accounts',
 			templateUrl: 'modules/users/views/settings/manage-user-accounts.client.view.html'

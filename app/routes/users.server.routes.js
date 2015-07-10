@@ -72,6 +72,8 @@ module.exports = function(app) {
             .get(users.read);
     app.route('/settings/accounts/edit/:profileId')
             .post(users.update);
+    app.route('/settings/accounts/edit/admin/:profileId')
+            .post(users.update);
     
     //manage users -> reset password
     app.route('/settings/accounts/reset/:profileId')
