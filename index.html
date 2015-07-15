@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Meanmaterial by SamDC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Meanmaterial</h1>
+      <h2 class="project-tagline">A version of the MEAN JS framework which uses material design.</h2>
+      <a href="https://github.com/SamDC/MEANMaterial" class="btn">View on GitHub</a>
+      <a href="https://github.com/SamDC/MEANMaterial/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/SamDC/MEANMaterial/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="mean-material" class="anchor" href="#mean-material" aria-hidden="true"><span class="octicon octicon-link"></span></a>MEAN Material</h1>
+
+<p><img src="https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0Bx4BSt6jniD7VG9DQVluOFJ4Tnc/materialdesign_principles_metaphor.png" alt="Material"></p>
+
+<p>This repo is a port of the MEAN.JS stack which strips out all of the bootstrap dependencies and implements Angular Material. If you want to learn more about the origins and architecture of the stack then go to the <a href="http://meanjs.org/">MEAN.JS Website</a>. More information on <a href="http://www.google.co.uk/design/spec/material-design/introduction.html#">Google Material Design</a> and of course the <a href="https://material.angularjs.org/latest/#/">Angular-Material</a> module.</p>
+
+<h2>
+<a id="things-we-are-adding" class="anchor" href="#things-we-are-adding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Things we are adding</h2>
+
+<p>We are building on the MEAN.JS stack and trying to get to a point where we have a solid reusable application template. A fe things we are going to try and implement:</p>
+
+<ul>
+<li>User management menus built into the application by default.</li>
+<li>Use SASS to improve customisation.</li>
+</ul>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>Make sure you have installed all these prerequisites on your development machine.</p>
+
+<ul>
+<li>Node.js - <a href="http://www.nodejs.org/download/">Download &amp; Install Node.js</a> and the npm package manager, if you encounter any problems, you can also use this <a href="https://gist.github.com/isaacs/579814">GitHub Gist</a> to install Node.js.</li>
+<li>MongoDB - <a href="http://www.mongodb.org/downloads">Download &amp; Install MongoDB</a>, and make sure it's running on the default port (27017).</li>
+<li>Bower - You're going to use the <a href="http://bower.io/">Bower Package Manager</a> to manage your front-end packages, in order to install it make sure you've installed Node.js and npm, then install bower globally using npm:</li>
+</ul>
+
+<pre><code>$ npm install -g bower
+</code></pre>
+
+<ul>
+<li>Grunt - You're going to use the <a href="http://gruntjs.com/">Grunt Task Runner</a> to automate your development process, in order to install it make sure you've installed Node.js and npm, then install grunt globally using npm:</li>
+</ul>
+
+<pre><code>$ sudo npm install -g grunt-cli
+</code></pre>
+
+<h2>
+<a id="quick-install" class="anchor" href="#quick-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Install</h2>
+
+<p>Once you've downloaded the boilerplate and installed all the prerequisites, you're just a few steps away from starting to develop your MEAN Material application.</p>
+
+<p>The first thing you should do is install the Node.js dependencies. The boilerplate comes pre-bundled with a package.json file that contains the list of modules you need to start your application, to learn more about the modules installed visit the NPM &amp; Package.json section.</p>
+
+<p>To install Node.js dependencies you're going to use npm again, in the application folder run this in the command-line:</p>
+
+<pre><code>$ npm install
+</code></pre>
+
+<p>This command does a few things:</p>
+
+<ul>
+<li>First it will install the dependencies needed for the application to run.</li>
+<li>If you're running in a development environment, it will then also install development dependencies needed for testing and running your application.</li>
+<li>Finally, when the install process is over, npm will initiate a bower install command to install all the front-end modules needed for the application</li>
+</ul>
+
+<h2>
+<a id="running-your-application" class="anchor" href="#running-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Your Application</h2>
+
+<p>After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:</p>
+
+<pre><code>$ grunt
+</code></pre>
+
+<p>Your application should run on the 3000 port so in your browser just go to <a href="http://localhost:3000">http://localhost:3000</a></p>
+
+<p>That's it! your application should be running by now, to proceed with your development check the other sections in this documentation.</p>
+
+<h2>
+<a id="development-and-deployment-with-docker" class="anchor" href="#development-and-deployment-with-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development and deployment With Docker</h2>
+
+<ul>
+<li>Install <a href="http://www.docker.com/">Docker</a>
+</li>
+<li><p>Install <a href="https://github.com/orchardup/fig">Fig</a></p></li>
+<li><p>Local development and testing with fig: </p></li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>$ fig up</pre></div>
+
+<ul>
+<li>Local development and testing with just Docker:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>$ docker build -t mean <span class="pl-c1">.</span>
+$ docker run -p 27017:27017 -d --name db mongo
+$ docker run -p 3000:3000 --link db:db_1 mean
+$</pre></div>
+
+<ul>
+<li>To enable live reload forward 35729 port and mount /app and /public as volumes:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>$ docker run -p 3000:3000 -p 35729:35729 -v /Users/mdl/workspace/mean-stack/mean/public:/home/mean/public -v /Users/mdl/workspace/mean-stack/mean/app:/home/mean/app --link db:db_1 mean</pre></div>
+
+<h2>
+<a id="running-in-a-secure-environment" class="anchor" href="#running-in-a-secure-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running in a secure environment</h2>
+
+<p>To run your application in a secure manner you'll need to use OpenSSL and generate a set of self-signed certificates. Unix-based users can use the following commnad: </p>
+
+<pre><code>$ sh generate-ssl-certs.sh
+</code></pre>
+
+<p>Windows users can follow instructions found <a href="http://www.websense.com/support/article/kbarticle/How-to-use-OpenSSL-and-Microsoft-Certification-Authority">here</a>
+To generate the key and certificate and place them in the <em>config/sslcert</em> folder.</p>
+
+<h2>
+<a id="couple-of-things-to-be-aware-of" class="anchor" href="#couple-of-things-to-be-aware-of" aria-hidden="true"><span class="octicon octicon-link"></span></a>Couple of things to be aware of</h2>
+
+<p>You can quickly change the basic theme of the application in the application.js file under public/ in the following block of code:</p>
+
+<pre><code>//Set up the color theme for the application https://material.angularjs.org/latest/#/Theming/01_introduction
+angular.module(ApplicationConfiguration.applicationModuleName)
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('green')
+    .accentPalette('light-green');
+});
+</code></pre>
+
+<p>Secondly there are some hard coded CSS entries in material.css which are just in there for now to set some extra configs like the font sizes, etc. and some a element styling. You can easily find any of this in the web browser inspector I'm sure.</p>
+
+<h2>
+<a id="getting-started-with-meanjs" class="anchor" href="#getting-started-with-meanjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started With MEAN.JS</h2>
+
+<p>You have your application running but there are a lot of stuff to understand, we recommend you'll go over the <a href="http://meanjs.org/docs.html">Official Documentation</a>. 
+In the docs we'll try to explain both general concepts of MEAN components and give you some guidelines to help you improve your development process. We tried covering as many aspects as possible, and will keep update it by your request, you can also help us develop the documentation better by checking out the <em>gh-pages</em> branch of this repository.</p>
+
+<h2>
+<a id="community" class="anchor" href="#community" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community</h2>
+
+<ul>
+<li>Use to <a href="http://meanjs.org">Offical Website</a> to learn about changes and the roadmap.</li>
+<li>Join #meanjs on freenode.</li>
+<li>Discuss it in the new <a href="https://groups.google.com/d/forum/meanjs">Google Group</a>
+</li>
+<li>Ping us on <a href="http://twitter.com/meanjsorg">Twitter</a> and <a href="http://facebook.com/meanjs">Facebook</a>
+</li>
+</ul>
+
+<h2>
+<a id="live-example" class="anchor" href="#live-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Live Example</h2>
+
+<p>Browse the live MEAN.JS example on <a href="http://meanjs.herokuapp.com">http://meanjs.herokuapp.com</a>.</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Inspired by the great work of <a href="https://github.com/madhums/">Madhusudhan Srinivasa</a>
+The MEAN name was coined by <a href="http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and">Valeri Karpov</a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/SamDC/MEANMaterial">Meanmaterial</a> is maintained by <a href="https://github.com/SamDC">SamDC</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
