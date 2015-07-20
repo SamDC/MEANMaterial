@@ -2,7 +2,7 @@
 
 ![Material](https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0Bx4BSt6jniD7VG9DQVluOFJ4Tnc/materialdesign_principles_metaphor.png)
 
-This repo is a port of the MEAN.JS stack which strips out all of the bootstrap dependencies and implements Angular Material. If you want to learn more about the origins and architecture of the stack then go to the [MEAN.JS Website](http://meanjs.org/). More information on [Google Material Design](http://www.google.co.uk/design/spec/material-design/introduction.html#) and of course the [Angular-Material](https://material.angularjs.org/latest/#/) module.
+This repository is based on the MEAN.JS stack but strips out all of the bootstrap dependencies and implements Angular Material. If you want to learn more about the origins and architecture of the stack then go to the [MEAN.JS Website](http://meanjs.org/). More information on [Google Material Design](http://www.google.co.uk/design/spec/material-design/introduction.html#) and of course the [Angular-Material](https://material.angularjs.org/latest/#/) module.
 
 ## Things we are adding 
 We are building on the MEAN.JS stack and trying to get to a point where we have a solid reusable application template. A fe things we are going to try and implement:
