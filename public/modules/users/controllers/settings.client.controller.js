@@ -114,7 +114,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$window', '
 		$scope.updateUserProfile = function(isValid) {
 			if (isValid) {
 				$scope.success = $scope.error = null;
-				var user = new Users.user($scope.selectedRow);
+				var user = new Users.updateUser($scope.selectedRow);
 
 				user.$update(function(response) {
 					$scope.success = true;

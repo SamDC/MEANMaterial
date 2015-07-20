@@ -122,31 +122,51 @@ exports.update = function(req, res, next) {
  * Edit User account, by updating the user entry.
  */
 exports.updateAdmin = function(req, res, next) {
-    var profile = req.body; //note: req.user is the person who is signed in! profile is the value that was passed.
+    //console.log(req);
+    var profile = req.body;
+    console.log(profile);
+    
+    var query = {'_id':profile._id};
+    
+    User.findOne(query, function(err, user){
+        if (err) { return next(err); }
+            console.log(user);
+            user = _.extend(user, profile);
+		    user.updated = Date.now();
+            user.save(function(err) {
+                if (err) { return next(err); }
+                User.findOne(query, function(err2, user2){
+                    console.log(user2);
+                });
+                res.send({message: 'Profile Altered.'});
+        });
+    });
+    
+    //var profile = req.body; //note: req.user is the person who is signed in! profile is the value that was passed.
     //console.log(profile);
     
-    User.findOne({
-        _id: profile._id
-    }, function(err, user) {
-        if (!err && user) {
-            user.firstName = profile.firstName;
-            user.lastName = profile.lastName;
-            user.email = profile.email;
-            user.role = profile.role;
-            //user.password = profile.password;
-            console.log(user);
-            
-            user.save(function(err) {
-							if (err) {
-								return res.status(400).send({
-									message: errorHandler.getErrorMessage(err)
-								});
-							} else {
-								res.send({message: 'Profile Altered.'});
-				            }
-                        });
-        }
-    });
+//    User.findOne({
+//        _id: profile._id
+//    }, function(err, user) {
+//        if (!err && user) {
+//            user.firstName = profile.firstName;
+//            user.lastName = profile.lastName;
+//            user.email = profile.email;
+//            user.role = profile.role;
+//            //user.password = profile.password;
+//            console.log(user);
+//            
+//            user.save(function(err) {
+//							if (err) {
+//								return res.status(400).send({
+//									message: errorHandler.getErrorMessage(err)
+//								});
+//							} else {
+//								res.send({message: 'Profile Altered.'});
+//				            }
+//                        });
+//        }
+//    });
 };
 
 exports.reset = function(req, res, next) {
