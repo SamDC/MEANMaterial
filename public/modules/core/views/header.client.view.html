@@ -41,7 +41,15 @@
                                 </md-icon>
                                 Edit profile
                             </md-button>
-                        </md-menu-item>                        
+                        </md-menu-item>
+                        <md-menu-item data-ng-show="authentication.user">
+                            <md-button ng-click="go('/settings/password')">
+                                <md-icon>
+                                    <i class="material-icons">vpn_key</i>
+                                </md-icon>
+                                Change password
+                            </md-button>
+                        </md-menu-item> 
                         <md-menu-item data-ng-show="authentication.user">
                             <md-button ng-click="go('/settings/accounts')">
                                 <md-icon>
