@@ -67,12 +67,8 @@ angular.module('users').controller('SettingsController', ['$scope', '$window', '
 		$scope.resetUserPassword = function() {
 			$scope.success = $scope.error = null;
             var user = $scope.selectedRow;
-            //console.log($scope.passwordDetails);
             
-            var param = $stateParams; //access the url param - the user id.
-            //console.log(param);
-            
-			$http.post('/settings/accounts/reset/' + param.userId, $scope.passwordDetails).success(function(response) {
+			$http.post('/settings/accounts/reset/' + user._id, $scope.passwordDetails).success(function(response) {
 				// If successful show success message and clear form
 				$scope.passwordDetails = null;
 
