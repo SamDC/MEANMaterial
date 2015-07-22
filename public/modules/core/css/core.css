@@ -1,52 +1,53 @@
+/* line 1, C:/MEANMaterial/public/modules/core/css/core.scss */
 .content {
-	margin-top: 50px;
-}
+  margin-top: 50px; }
+
+/* line 4, C:/MEANMaterial/public/modules/core/css/core.scss */
 .undecorated-link:hover {
-	text-decoration: none;
-}
+  text-decoration: none; }
 
+/* line 8, C:/MEANMaterial/public/modules/core/css/core.scss */
 .undecorated-link {
-	text-decoration: none;
-}
+  text-decoration: none; }
+
+/* line 11, C:/MEANMaterial/public/modules/core/css/core.scss */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
+  display: none !important; }
+
+/* line 14, C:/MEANMaterial/public/modules/core/css/core.scss */
 .ng-invalid.ng-dirty {
-	border-color: #FA787E;
-}
+  border-color: #FA787E; }
+
+/* line 17, C:/MEANMaterial/public/modules/core/css/core.scss */
 .ng-valid.ng-dirty {
-	border-color: #78FA89;
-}
+  border-color: #78FA89; }
 
-
-
-
+/* line 24, C:/MEANMaterial/public/modules/core/css/core.scss */
 .core-main-image-container {
-    height: 360px;
-}
+  height: 360px; }
 
+/* line 28, C:/MEANMaterial/public/modules/core/css/core.scss */
 .core-main-image {
-    width: 360px
-}
+  width: 360px; }
 
-
-
+/* line 34, C:/MEANMaterial/public/modules/core/css/core.scss */
 .kermit-green {
-    color: #8CD049;
-}
+  color: #8CD049; }
 
+/* line 38, C:/MEANMaterial/public/modules/core/css/core.scss */
 .deeper-red {
-    color: #E13138;
-}
+  color: #E13138; }
 
+/* line 42, C:/MEANMaterial/public/modules/core/css/core.scss */
 .lightning-yellow {
-    color: #FFEA1D;
-}
+  color: #FFEA1D; }
 
+/* line 46, C:/MEANMaterial/public/modules/core/css/core.scss */
 .blue-sky-blue {
-    color: #35C6EA;
-}
+  color: #35C6EA; }
 
+/* line 50, C:/MEANMaterial/public/modules/core/css/core.scss */
 .social-icons {
-    height: 60px;
-}
+  height: 60px; }
+
+/*# sourceMappingURL=core.css.map */
