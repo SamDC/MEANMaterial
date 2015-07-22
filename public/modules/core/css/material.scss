@@ -1,8 +1,13 @@
+@import '../../../../public/style/_variables';
+@import '../../../../public/style/_mixins';
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5bbKic1PW3nceB3q24YFOMg.ttf) format('truetype');
+  src: local('Material Icons'), 
+       local('MaterialIcons-Regular'),
+       url('https://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5bbKic1PW3nceB3q24YFOMg.ttf') format('truetype');
 }
 .material-icons {
   font-family: 'Material Icons';
@@ -25,12 +30,12 @@
 .material-icons.md-48 { font-size: 48px; }
 
 /*Rules for using icons as black on a light background.*/
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons.md-dark { color: rgb(0, 0, 0); color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgb(0, 0, 0); color: rgba(0, 0, 0, 0.26); }
 
 /*Rules for using icons as white on a dark background.*/
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+.material-icons.md-light { color: rgb(255, 255, 255); }
+.material-icons.md-light.md-inactive { color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.3); }
 
 /*Push <i> down inside material buttons for nice fit.*/
 .md-toolbar-tools > .md-icon-button > i { margin-top: 6px;}
