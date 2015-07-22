@@ -50,7 +50,7 @@
                                 Change password
                             </md-button>
                         </md-menu-item> 
-                        <md-menu-item data-ng-show="authentication.user">
+                        <md-menu-item data-ng-show="authentication.user.role === 'admin'">
                             <md-button ng-click="go('/settings/accounts')">
                                 <md-icon>
                                     <i class="material-icons">settings</i>
