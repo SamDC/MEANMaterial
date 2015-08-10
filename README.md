@@ -4,10 +4,10 @@
 
 This repository is based on the MEAN.JS stack but strips out all of the bootstrap dependencies and implements Angular Material. If you want to learn more about the origins and architecture of the stack then go to the [MEAN.JS Website](http://meanjs.org/). More information on [Google Material Design](http://www.google.co.uk/design/spec/material-design/introduction.html#) and of course the [Angular-Material](https://material.angularjs.org/latest/#/) module.
 
-## Things we are adding 
-We are building on the MEAN.JS stack and trying to get to a point where we have a solid reusable application template. A fe things we are going to try and implement:
-* User management menus built into the application by default.
-* Use SASS to improve customisation.
+## Things we have added 
+We built on the MEAN.JS stack and have now got to a point where we have a solid reusable application template. A few things we have added:
+* User management menus built into the application by default. This has role based authentication and admins have ability to create users, edit users, change the user passwords, etc. It is also modelled on the beta google contacts UI.
+* We use SASS to improve customisation of the applications and speed up dev.
 
 
 ## Prerequisites
